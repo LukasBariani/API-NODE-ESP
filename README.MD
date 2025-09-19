@@ -1,81 +1,132 @@
-<div align="center">
+<div align="center"> <img src="./.github/assets/esp-bg.png" alt="Logo" height="200"> <h1 align="center"><strong>ESP MONITORING API</strong></h1> <p align="center"> API em <b>Node.js</b> com <b>Typescript</b> para coletar dados de sensores (DHT11, LDR e MQ-135) via <b>ESP32</b> 🚀 </p> </div> <br /> <!-- Badges --> <div align="center">
 
-  <img src="./.github/assets/blue-saiyan-bg.png" alt="Logo" height="200">
-  <h1 align="center"><strong>NODE BOILERPLATE - BLUE EDITION</strong></h1>
-  <p align="center">
-	  Don't start a new Node project from zero!<br> Use this simple <b>Nodejs</b> boilerplate with pre-configured <b>Typescript</b> in a modern way.
-  </p>
 
-</div>
 
-<br />
 
-  <!-- Badges -->
-<div align="center">
-  
-  [![TypeScript version][ts-badge]][typescript-5-4]
-  [![Node.js version][nodejs-badge]][nodejs]
+
 
 </div>
+🚀 Tecnologias
 
-# 🚀 Technologies
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-This code source was developed with the following items:
+📦 Dependências principais
 
-### 📦 Dependencies
+express
+ - Framework web para Node.js
 
-- [typescript][typescript-npm] - Superset for application scale JavaScript development
-- [tsx][tsx-npm] - TypeScript Execute (tsx): Enable Node.js to run TypeScript
-- [tsup][tsup-npm] - Bundle your TypeScript library with no config, powered by esbuild
-- [@types/node][@types/node-npm] - type definitions for node
+sequelize
+ + mysql2
+ - ORM e driver MySQL
 
-### 📄 Files
+[typescript][typescript-npm] - Superset para desenvolvimento em escala
 
-- `.gitignore` - Ignore folders like node_modules
-- `.env` - Enviroment variables
-- `tsconfig.json` - Typescript configure Options
+dotenv
+ - Variáveis de ambiente
 
-### ⚡ Scripts
+nodemon
+ - Reload automático no desenvolvimento
 
-- `npm run dist`: Compiles TypeScript files to JavaScript in the dist directory.
-- `npm run start:dev`: Runs the server in development mode with environment variables loaded from the .env file.
-- `npm run start:watch`: Runs the server in development mode with support for automatic reload on file changes.
-- `npm run start:dist`: Compiles the project and runs the compiled version from the dist directory.
+📄 Estrutura de Arquivos
 
-# 👨‍💻 How To Use
+.gitignore - Ignora node_modules, dist e arquivos sensíveis
 
-click in **[Use this template]** OR
+.env - Variáveis de ambiente (porta, banco, etc.)
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v20+](https://nodejs.org/en/) + [NPM v10+](https://nodejs.org/en/) installed on your computer. From your command line:
+tsconfig.json - Configurações do TypeScript
 
-```bash
-# Clone this repository
-$ git clone https://github.com/felipeAguiarCode/node-blue-boilerplate
+src/models - Models Sequelize (User, Device, Reading)
 
-# Go into the repository
-$ cd node-blue-boilerplate
+src/controllers - Controladores da API
 
-# Install dependencies
+src/services - Regras de negócio
+
+src/repositories - Acesso ao banco
+
+src/routes - Rotas da API
+
+⚡ Scripts
+
+npm run start:dev → roda a API em modo desenvolvimento (com nodemon)
+
+npm run start:dist → compila e executa a versão em dist/
+
+npm run build → gera build TypeScript para JavaScript em dist/
+
+📡 Funcionalidades
+
+Cadastro de usuários e dispositivos (com apiKey)
+
+Recebimento de leituras de sensores (temperature, humidity, luminosity, gas)
+
+Associação automática entre device ↔ reading via apiKey
+
+Endpoints para:
+
+Listar todas as leituras
+
+Buscar leituras por deviceId
+
+Última leitura de um dispositivo
+
+Leituras filtradas por período
+
+👨‍💻 Como usar
+Requisitos
+
+Git
+
+Node.js v20+
+
+MySQL 8+
+
+Passo a passo
+# Clone o repositório
+$ git clone https://github.com/seu-usuario/esp-monitoring-api
+
+# Entre na pasta
+$ cd esp-monitoring-api
+
+# Instale as dependências
 $ npm install
-```
 
-## Author
+# Configure o .env (porta, usuário do banco, senha e nome do DB)
 
-| [<img src="https://avatars3.githubusercontent.com/u/37452836?s=96&v=4"><br><sub>Felipe Aguiar</sub>](https://github.com/felipeAguiarCode) |
-| :---------------------------------------------------------------------------------------------------------------------------------------: |
-|                                            [Linkedin](www.linkedin.com/in/felipe-aguiar-exe/)                                             |
+# Rode as migrations/sincronização
+$ npm run start:dev
 
-# Credits
 
-icons by [Pino Lamanna][dribble-icon]
+A API estará disponível em:
+👉 http://localhost:3333/api
 
-[typescript]: https://www.typescriptlang.org/
-[typescript-5-4]: https://www.typescriptlang.org/
-[ts-badge]: https://img.shields.io/badge/TypeScript-5.4-blue.svg
-[nodejs-badge]: https://img.shields.io/badge/Node.js->=%2020.00-blue.svg
-[nodejs]: https://nodejs.org/
-[dribble-icon]: https://dribbble.com/Schakalwal
-[typescript-npm]: https://www.npmjs.com/package/typescript
-[tsx-npm]: https://www.npmjs.com/package/tsx
-[tsup-npm]: https://www.npmjs.com/package/tsup
-[@types/node-npm]: https://www.npmjs.com/package/@types/node
+🔌 Integração com o ESP32
+
+O ESP32 coleta dados dos sensores e envia para a API:
+
+DHT11 → Temperatura (°C) e Umidade (%)
+
+LDR → Luminosidade (valor analógico)
+
+MQ-135 → Qualidade do ar (valor analógico)
+
+Exemplo de payload enviado:
+
+{
+  "temperature": 23.5,
+  "humidity": 48,
+  "luminosity": 512,
+  "gas": 289
+}
+
+
+Com cabeçalho:
+
+x-api-key: def456
+
+👤 Autor
+<img src="https://avatars.githubusercontent.com/u/000000?v=4" width=80><br><sub>Seu Nome</sub>
+
+Linkedin
+📝 Créditos
+
+Baseado no node-blue-boilerplate
