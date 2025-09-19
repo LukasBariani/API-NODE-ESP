@@ -6,13 +6,15 @@ import time
 API_URL = "http://localhost:3333/api/readings"
 
 # API key do device (tem que existir no seu repositório de devices)
-API_KEY = "def456"  # exemplo, ajuste conforme seu deviceRepo
+API_KEY = "abc123456789"  # exemplo, ajuste conforme seu deviceRepo
 
 def generate_data():
     """Gera dados aleatórios de temperatura e umidade"""
     return {
         "temperature": round(random.uniform(20.0, 35.0), 2),
-        "humidity": round(random.uniform(30.0, 90.0), 2)
+        "humidity": round(random.uniform(30.0, 90.0), 2),
+        "gas": round(random.uniform(20.0, 35.0), 2),
+        "luminosity": round(random.uniform(30.0, 90.0), 2)
     }
 
 def send_data():

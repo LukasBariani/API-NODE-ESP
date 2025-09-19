@@ -26,6 +26,8 @@ export const postReading = async (req: Request, res: Response) => {
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };
 
+
+
 export const getReadingsByPeriod = async (req: Request, res: Response) => {
   const deviceId = parseInt(req.params.deviceId);
   const { startDate, endDate } = req.query;

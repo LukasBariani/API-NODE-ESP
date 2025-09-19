@@ -1,6 +1,6 @@
 import * as httpResponse from "../../utils/http-helper";
 import * as deviceRepository from "../repositories/device-repo";
-import { DeviceModel } from "../models/device-model";
+import { Device } from "../models/device-model";
 
 export const getDeviceService = async () => {
     const data = await deviceRepository.findAllDevices();
@@ -15,7 +15,7 @@ export const getDeviceService = async () => {
     return response
 }
 
-export const createDeviceService = async (device: DeviceModel | undefined) => {
+export const createDeviceService = async (device: Device | undefined) => {
   if (!device || Object.keys(device).length === 0) {
     return await httpResponse.badRequest();
   } else {

@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js",
-
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
     "dist": "tsup src",
     "start:dev": "tsx --env-file=.env src/server.ts",
     "start:watch": "tsx watch --env-file=.env  src/server.ts",
@@ -21,11 +20,15 @@
     "@types/express": "^5.0.3",
     "@types/node": "^20.11.30",
     "axios": "^1.11.0",
-    "tsup": "^8.0.2",
-    "tsx": "^4.20.4",
+    "ts-node-dev": "^2.0.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.5",
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.4",
+    "ngrok": "^5.0.0-beta.2",
+    "sequelize": "^6.37.7"
   }
 }

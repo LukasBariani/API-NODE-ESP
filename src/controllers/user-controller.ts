@@ -8,6 +8,12 @@ export const getUser = async (req: Request, res: Response) => {
     res.status(httpResponse.statusCode).json(httpResponse.body)
 }
 
+export const deleteUser = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id)
+    const httpResponse = await service.deleteUserService(id)
+    res.status(httpResponse.statusCode).json(httpResponse.body)
+}
+
 export const postUser = async (req: Request, res: Response) => {
     const bodyValue = req.body
     const httpResponse = await service.createUserService(bodyValue)

@@ -14,6 +14,8 @@ router.get("/users/:id", userController.getUserById)
 
 router.post("/users", userController.postUser)
 
+router.delete("/users/:id", userController.deleteUser)
+
 // rotas devices
 router.get("/devices", deviceController.getDevice)
 
@@ -28,6 +30,8 @@ router.get("/readings", readingController.getReadings);
 router.get("/readings/device/:deviceId", readingController.getReadingsByDeviceId);
 router.get("/readings/device/:deviceId/last", readingController.getLastReadingByDeviceId);
 router.get("/readings/device/:deviceId/period", readingController.getReadingsByPeriod);
+
+
 router.post("/readings", readingController.postReading);
 
 // Rota especial para o ESP32 (usando API Key no header)
