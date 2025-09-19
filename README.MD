@@ -1,4 +1,4 @@
-<div align="center"> <img src="./.github/assets/esp-bg.png" alt="Logo" height="200"> <h1 align="center"><strong>ESP MONITORING API</strong></h1> <p align="center"> API em <b>Node.js</b> com <b>Typescript</b> para coletar dados de sensores (DHT11, LDR e MQ-135) via <b>ESP32</b> 🚀 </p> </div> <br /> <!-- Badges --> <div align="center">
+<div align="center"> <img src="./.github/assets/image.png" alt="Logo" height="200"> <h1 align="center"><strong>ESP MONITORING API</strong></h1> <p align="center"> API em <b>Node.js</b> com <b>Typescript</b> para coletar dados de sensores (DHT11, LDR e MQ-135) via <b>ESP32</b> 🚀 </p> </div> <br /> <!-- Badges --> <div align="center">
 
 
 
@@ -124,9 +124,6 @@ Com cabeçalho:
 x-api-key: def456
 
 👤 Autor
-<img src="https://avatars.githubusercontent.com/u/000000?v=4" width=80><br><sub>Seu Nome</sub>
-
-Linkedin
-📝 Créditos
+<img src="https://avatars.githubusercontent.com/u/000000?v=4" width=80><br><sub>Lukas Rodrigues Bariani</sub>
 
 Baseado no node-blue-boilerplate
