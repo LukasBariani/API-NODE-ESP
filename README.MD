@@ -82,17 +82,15 @@ MySQL 8+
 
 Passo a passo
 # Clone o repositório
-$ git clone https://github.com/seu-usuario/esp-monitoring-api
+$ git clone https://github.com/LukasBariani/API-NODE-ESP
 
 # Entre na pasta
-$ cd esp-monitoring-api
+$ cd API-NODE-ESP
 
 # Instale as dependências
 $ npm install
 
-# Configure o .env (porta, usuário do banco, senha e nome do DB)
-
-# Rode as migrations/sincronização
+# Rode
 $ npm run start:dev
 
 
@@ -124,6 +122,6 @@ Com cabeçalho:
 x-api-key: def456
 
 👤 Autor
-<img src="https://avatars.githubusercontent.com/u/000000?v=4" width=80><br><sub>Lukas Rodrigues Bariani</sub>
+<img src="https://avatars.githubusercontent.com/u/166918103?v=4" width=80><br><sub>Lukas Rodrigues Bariani</sub>
 
 Baseado no node-blue-boilerplate
