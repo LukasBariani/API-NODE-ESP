@@ -58,11 +58,13 @@ router.get("/users/:id", userController.getUserById);
  *         application/json:
  *           schema:
  *             type: object
- *             required: [name, email]
+ *             required: [name, email, passwordHash]
  *             properties:
  *               name:
  *                 type: string
  *               email:
+ *                 type: string
+ *               passwordHash:
  *                 type: string
  *     responses:
  *       201:
@@ -78,6 +80,7 @@ router.post("/users", userController.postUser);
  *     tags: [Users]
  *     parameters:
  *       - name: id
+ *       - passwordHash: id
  *         in: path
  *         required: true
  *         schema:
