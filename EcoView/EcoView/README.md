@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="icon_disparava.jpg" alt="Icone do EcoView" height="200">
+    <img src="icon_disparava.png" alt="Icone do EcoView" height="200">
     <h1 align="center">EcoView Front-End: Dashboard e Análise de Dados</h1>
     <p align="center">Interface web moderna desenvolvida em React.js para visualização e análise de indicadores ambientais em tempo real.</p>
 </div>
