@@ -74,9 +74,9 @@
 
 <h2>Autores</h2>
 <ul>
-    <li>Vinícius Gonzaga Pereira [cite: 2, 22]</li>
-   <li>Mariana de Oliveira Rigueiro [cite: 3, 22]</li>
-   <li>Lukas Rodrigues Bariani [cite: 4, 22]</li>
-    <li>Matheus Mendonça de Lima [cite: 5, 22]</li>
+    <li>Vinícius Gonzaga Pereira</li>
+   <li>Mariana de Oliveira Rigueiro </li>
+   <li>Lukas Rodrigues Bariani </li>
+    <li>Matheus Mendonça de Lima</li>
 </ul>
-[cite_start]<p>Desenvolvido na Etec da Zona Leste[cite: 2, 3, 4, 5, 23].</p>
+<p>Desenvolvido na Etec da Zona Leste.</p>
