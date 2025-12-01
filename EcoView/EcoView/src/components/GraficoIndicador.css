@@ -1,0 +1,396 @@
+/* Container do gráfico individual - FUNDO BRANCO */
+.grafico-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 
+    0 8px 30px rgba(0, 59, 49, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: graficoSlideIn 0.8s ease-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efeito de borda superior animada - VERDE */
+.grafico-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #047857, 
+    #10b981, 
+    #2dd4bf,
+    #047857);
+  background-size: 200% 100%;
+  animation: borderFlow 3s linear infinite;
+}
+
+/* Efeito de brilho no hover - VERDE SUAVE */
+.grafico-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(16, 185, 129, 0.03), 
+    transparent);
+  transition: left 0.6s ease;
+  z-index: 0;
+}
+
+.grafico-card:hover::after {
+  left: 100%;
+}
+
+.grafico-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 15px 40px rgba(0, 123, 95, 0.12),
+    0 4px 20px rgba(0, 0, 0, 0.05);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Título do gráfico - VERDE ESCURO */
+.grafico-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #064635;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.grafico-card:hover h3 {
+  color: #047857;
+}
+
+/* Container do Recharts */
+.grafico-card .recharts-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* Grid do gráfico - CINZA CLARO */
+.grafico-card .recharts-cartesian-grid-horizontal line,
+.grafico-card .recharts-cartesian-grid-vertical line {
+  stroke: rgba(0, 123, 95, 0.08);
+  stroke-dasharray: 3 3;
+}
+
+/* Eixos - CINZA MÉDIO */
+.grafico-card .recharts-x-axis .recharts-cartesian-axis-tick-value,
+.grafico-card .recharts-y-axis .recharts-cartesian-axis-tick-value {
+  fill: #666666;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.grafico-card .recharts-x-axis .recharts-cartesian-axis-line,
+.grafico-card .recharts-y-axis .recharts-cartesian-axis-line {
+  stroke: rgba(0, 123, 95, 0.15);
+}
+
+/* Linha do gráfico com efeito especial */
+.grafico-card .recharts-line-curve {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  animation: lineDraw 1.5s ease-out;
+}
+
+.grafico-card .recharts-line-dots circle {
+  r: 4;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+}
+
+.grafico-card:hover .recharts-line-dots circle {
+  r: 5;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+/* Tooltip customizado - FUNDO BRANCO */
+.grafico-card .recharts-tooltip-wrapper {
+  filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.12));
+}
+
+.grafico-card .recharts-default-tooltip {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  border-radius: 10px !important;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  padding: 12px !important;
+  animation: tooltipPop 0.3s ease-out;
+}
+
+.grafico-card .recharts-tooltip-label {
+  color: #064635 !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 6px !important;
+  font-family: inherit !important;
+}
+
+.grafico-card .recharts-tooltip-item {
+  color: #042f26 !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  font-family: inherit !important;
+}
+
+.grafico-card .recharts-tooltip-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* Legendas (se houver) - VERDES */
+.grafico-card .recharts-legend-wrapper {
+  padding: 10px 0 0 0;
+}
+
+.grafico-card .recharts-default-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.grafico-card .recharts-legend-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.grafico-card .recharts-legend-item:hover {
+  transform: translateY(-2px);
+}
+
+.grafico-card .recharts-legend-item-text {
+  color: #047857 !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+}
+
+/* Indicador de tendência - VERDES */
+.tendencia-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: indicatorPulse 2s ease-in-out infinite;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.tendencia-positiva {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.tendencia-negativa {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+}
+
+.tendencia-estavel {
+  background: rgba(107, 114, 128, 0.12);
+  color: #6b7280;
+  border: 1px solid rgba(107, 114, 128, 0.25);
+}
+
+/* ========== ANIMAÇÕES ESPECÍFICAS ========== */
+@keyframes graficoSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+@keyframes lineDraw {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes tooltipPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes indicatorPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Estados de loading */
+.grafico-card.loading {
+  position: relative;
+}
+
+.grafico-card.loading::before {
+  animation: none;
+  background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.grafico-card.loading .recharts-wrapper {
+  opacity: 0.3;
+}
+
+/* Shimmer effect para loading */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+  .grafico-card {
+    padding: 20px;
+  }
+  
+  .grafico-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .grafico-card .recharts-wrapper {
+    min-height: 200px;
+  }
+  
+  .tendencia-indicator {
+    top: 15px;
+    right: 15px;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grafico-card {
+    padding: 15px;
+    border-radius: 16px;
+  }
+  
+  .grafico-card h3 {
+    font-size: 1rem;
+  }
+  
+  .grafico-card .recharts-x-axis .recharts-cartesian-axis-tick-value,
+  .grafico-card .recharts-y-axis .recharts-cartesian-axis-tick-value {
+    font-size: 10px;
+  }
+}
+
+/* Suporte para modo escuro - MANTÉM AS CORES PRINCIPAIS */
+@media (prefers-color-scheme: dark) {
+  .grafico-card {
+    background: #1a1a1a;
+    border-color: rgba(16, 185, 129, 0.2);
+  }
+  
+  .grafico-card h3 {
+    color: #10b981;
+  }
+  
+  .grafico-card .recharts-cartesian-grid-horizontal line,
+  .grafico-card .recharts-cartesian-grid-vertical line {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+  
+  .grafico-card .recharts-x-axis .recharts-cartesian-axis-tick-value,
+  .grafico-card .recharts-y-axis .recharts-cartesian-axis-tick-value {
+    fill: rgba(255, 255, 255, 0.7);
+  }
+  
+  .grafico-card .recharts-default-tooltip {
+    background: #2d2d2d !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+  }
+  
+  .grafico-card .recharts-tooltip-label {
+    color: #10b981 !important;
+  }
+  
+  .grafico-card .recharts-tooltip-item {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
+/* Otimização para preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .grafico-card,
+  .grafico-card::before,
+  .grafico-card::after,
+  .tendencia-indicator {
+    animation: none;
+    transition: none;
+  }
+  
+  .grafico-card .recharts-line-curve {
+    animation: none;
+  }
+  
+  .grafico-card:hover {
+    transform: none;
+  }
+}

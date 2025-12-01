@@ -1,0 +1,1217 @@
+/* Variáveis CSS para cores */
+:root {
+  --primary-dark: #003b31;
+  --primary: #047857;
+  --primary-light: #10b981;
+  --primary-glow: #2dd4bf;
+  --secondary: #064635;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --text-dark: #042f26;
+  --positive: #059669;
+  --negative: #dc2626;
+}
+
+/* Container geral com múltiplos gradientes animados */
+.indicators-wrap {
+  background: 
+    /* Gradiente principal animado */
+    linear-gradient(-45deg, #003b31, #013b33, #064635, #003b31),
+    /* Camada de brilho sutil */
+    radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(45, 212, 191, 0.08) 0%, transparent 50%),
+    /* Camada de textura */
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  
+  background-size: 
+    400% 400%, 
+    800px 800px, 
+    600px 600px, 
+    20px 20px, 
+    20px 20px;
+  
+  animation: 
+    gradientShift 18s ease infinite,
+    gentlePulse 8s ease-in-out infinite;
+  
+  padding: 36px 18px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de partículas melhorado */
+.indicators-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Partículas grandes */
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.1) 1%, transparent 8%),
+    radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.08) 1%, transparent 8%),
+    radial-gradient(circle at 45% 55%, rgba(255, 255, 255, 0.06) 1%, transparent 6%),
+    /* Partículas médias */
+    radial-gradient(circle at 25% 65%, rgba(255, 255, 255, 0.05) 0.5%, transparent 4%),
+    radial-gradient(circle at 65% 35%, rgba(255, 255, 255, 0.04) 0.5%, transparent 4%),
+    radial-gradient(circle at 55% 85%, rgba(255, 255, 255, 0.03) 0.5%, transparent 4%),
+    /* Partículas pequenas */
+    radial-gradient(circle at 35% 15%, rgba(255, 255, 255, 0.02) 0.3%, transparent 3%),
+    radial-gradient(circle at 75% 45%, rgba(255, 255, 255, 0.02) 0.3%, transparent 3%);
+  
+  background-size: 
+    400px 400px,
+    300px 300px,
+    350px 350px,
+    200px 200px,
+    250px 250px,
+    180px 180px,
+    120px 120px,
+    150px 150px;
+  
+  animation: 
+    particleFloat 25s linear infinite,
+    particleOpacity 6s ease-in-out infinite;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Efeito de brilho sutil nas bordas */
+.indicators-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(45, 212, 191, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(4, 120, 87, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(6, 78, 59, 0.02) 0%, transparent 50%);
+  animation: cornerGlow 12s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Linhas de conexão animadas */
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.connection-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(90deg, transparent 95%, rgba(16, 185, 129, 0.3) 100%),
+    linear-gradient(0deg, transparent 95%, rgba(45, 212, 191, 0.2) 100%);
+  background-size: 30px 30px;
+  animation: gridMove 20s linear infinite;
+}
+
+/* Área central com efeito de elevação */
+.indicators-inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+  animation: 
+    contentReveal 1.2s cubic-bezier(0.2, 0.9, 0.2, 1) both,
+    gentleFloat 6s ease-in-out infinite;
+  
+  /* Efeito de brilho ao redor do conteúdo */
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0 60px rgba(16, 185, 129, 0.1);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 20px;
+}
+
+/* Elementos flutuantes decorativos */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-element {
+  position: absolute;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  animation: floatElement 20s linear infinite;
+}
+
+.floating-element:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.floating-element:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 70%;
+  left: 80%;
+  animation-delay: -5s;
+  animation-duration: 30s;
+}
+
+.floating-element:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  left: 90%;
+  animation-delay: -10s;
+  animation-duration: 35s;
+}
+
+.floating-element:nth-child(4) {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: 15%;
+  animation-delay: -15s;
+  animation-duration: 28s;
+}
+
+/* ROW dos cards com perspectiva */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== ANIMAÇÕES REFINADAS ========== */
+@keyframes gradientShift {
+  0% { 
+    background-position: 
+      0% 50%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%;
+  }
+  50% { 
+    background-position: 
+      100% 50%,
+      100% 100%,
+      100% 100%,
+      20px 20px,
+      20px 20px;
+  }
+  100% { 
+    background-position: 
+      0% 50%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%;
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0.95;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    background-position: 
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%;
+  }
+  100% {
+    background-position: 
+      100px -200px,
+      -150px 100px,
+      200px -150px,
+      -100px 200px,
+      150px -100px,
+      -200px 150px,
+      100px -50px,
+      -150px 100px;
+  }
+}
+
+@keyframes particleOpacity {
+  0%, 100% { 
+    opacity: 0.4;
+  }
+  50% { 
+    opacity: 0.8;
+  }
+}
+
+@keyframes cornerGlow {
+  0%, 100% { 
+    opacity: 0.3;
+  }
+  25% { 
+    opacity: 0.5;
+  }
+  50% { 
+    opacity: 0.4;
+  }
+  75% { 
+    opacity: 0.6;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
+}
+
+@keyframes contentReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { 
+    transform: translateY(0);
+  }
+  50% { 
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatElement {
+  0% {
+    transform: 
+      translate(0, 0) 
+      rotate(0deg) 
+      scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: 
+      translate(50px, -80px) 
+      rotate(90deg) 
+      scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: 
+      translate(100px, 0) 
+      rotate(180deg) 
+      scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: 
+      translate(50px, 80px) 
+      rotate(270deg) 
+      scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: 
+      translate(0, 0) 
+      rotate(360deg) 
+      scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Efeito de onda sutil */
+.wave-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(transparent, rgba(16, 185, 129, 0.1));
+  animation: waveMove 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.6;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .indicators-wrap {
+    padding: 20px 12px;
+  }
+  
+  .indicators-inner {
+    padding: 15px;
+    gap: 20px;
+  }
+  
+  .floating-element {
+    display: none; /* Remove elementos flutuantes em mobile */
+  }
+  
+  .connection-lines::before {
+    opacity: 0.05; /* Reduz intensidade em mobile */
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .indicators-wrap,
+  .indicators-wrap::before,
+  .indicators-wrap::after,
+  .floating-element,
+  .connection-lines::before {
+    animation: none;
+  }
+  
+  .indicators-inner {
+    animation: contentReveal 0.8s ease-out both;
+  }
+}
+/* CARD com animações complexas */
+.metric-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), #ffffff);
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 2px solid transparent;
+  box-shadow: 
+    0 10px 20px rgba(2, 44, 36, 0.18), 
+    inset 0 -4px 8px rgba(0,0,0,0.02);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  animation: cardSlideIn 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Animações escalonadas para os cards */
+.metric-card:nth-child(1) { animation-delay: 0.1s; }
+.metric-card:nth-child(2) { animation-delay: 0.2s; }
+.metric-card:nth-child(3) { animation-delay: 0.3s; }
+.metric-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* efeito borda gradient externo (pseudo) */
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, rgba(16,185,129,0.3), rgba(34,197,94,0.2));
+  z-index: -1;
+  filter: blur(12px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+/* Efeito de luz interna no hover */
+.metric-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+  z-index: 0;
+}
+
+/* hover e foco com efeitos avançados */
+.metric-card:hover {
+  transform: translateY(-8px) scale(1.02) rotateX(2deg);
+  box-shadow: 
+    0 18px 36px rgba(2, 44, 36, 0.3),
+    0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.metric-card:hover::after {
+  left: 100%;
+}
+
+/* estado ativo (selecionado) - DESTAQUE SUAVE */
+.metric-card.active {
+  border: 2px solid rgba(16,185,129,0.6);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248, 255, 252, 0.95));
+  box-shadow: 
+    0 15px 30px rgba(3, 85, 59, 0.25),
+    inset 0 0 0 1px rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Efeito sutil de brilho interno para o card ativo */
+.metric-card.active::before {
+  opacity: 0.7;
+  background: linear-gradient(90deg, rgba(16,185,129,0.4), rgba(34,197,94,0.3));
+}
+
+/* Destaque mais forte no ícone do card ativo */
+.metric-card.active .card-icon {
+  background: linear-gradient(180deg, #d4f7e9, #b8f0dc);
+  box-shadow: 0 6px 14px rgba(3, 87, 65, 0.2);
+  transform: scale(1.05);
+}
+
+/* Destaque sutil no texto do card ativo */
+.metric-card.active .card-title {
+  color: var(--primary-dark);
+  font-weight: 800;
+}
+
+.metric-card.active .card-value {
+  color: var(--primary);
+  text-shadow: 0 1px 2px rgba(4, 120, 87, 0.1);
+}
+
+/* topo do card: icone + título */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg,#e6fff6,#d8fff1);
+  color: #047857;
+  box-shadow: 0 6px 14px rgba(3, 87, 65, 0.15);
+  transition: all 0.3s ease;
+  font-size: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de brilho no ícone */
+.card-icon::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.metric-card:hover .card-icon { 
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(3, 87, 65, 0.2);
+}
+
+.metric-card:hover .card-icon::before {
+  opacity: 1;
+  transform: rotate(45deg) translate(20%, 20%);
+}
+
+.card-title {
+  font-weight: 700;
+  color: #003b31;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.metric-card:hover .card-title {
+  color: var(--primary);
+}
+
+/* corpo do card: valor + variação */
+.card-body { 
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.card-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #042f26;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card:hover .card-value {
+  color: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.card-variation {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.card-variation.pos { 
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+}
+
+.card-variation.neg { 
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.metric-card:hover .card-variation {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Destaque na variação do card ativo */
+.metric-card.active .card-variation.pos {
+  background: rgba(5, 150, 105, 0.2);
+  box-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
+}
+
+.metric-card.active .card-variation.neg {
+  background: rgba(220, 38, 38, 0.2);
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+}
+
+/* cartão do gráfico com efeitos avançados */
+.chart-card {
+  background: linear-gradient(180deg,#e5fff2, #f7fffb);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 
+    0 16px 36px rgba(2, 44, 36, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(6,54,43,0.05);
+  position: relative;
+  overflow: hidden;
+  animation: chartSlideIn 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Efeito de brilho no topo do cartão */
+.chart-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  animation: chartLine 3s ease-in-out infinite;
+}
+
+/* cabeçalho do gráfico */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 0 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.chart-title {
+  font-weight: 800;
+  color: #064635;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover .chart-title {
+  color: var(--primary-dark);
+  transform: translateX(5px);
+}
+
+.chart-sub {
+  color: #0f5132;
+  font-size: 13px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.chart-card:hover .chart-sub {
+  opacity: 1;
+}
+
+/* área do gráfico */
+.chart-area {
+  width: 100%;
+  height: 360px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Efeito de loading para dados do gráfico */
+.chart-area::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(6, 70, 53, 0.2);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  animation: chartSpin 1s linear infinite;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chart-area.loading::before {
+  opacity: 1;
+}
+
+/* Animações para as barras do gráfico */
+.recharts-bar-rectangle {
+  animation: barEntry 0.8s cubic-bezier(0.2, 0.9, 0.2, 1.2) forwards;
+  transform-origin: bottom;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.recharts-bar-rectangle:hover {
+  filter: brightness(1.2);
+  transform: scaleY(1.05) translateY(-2px);
+}
+
+/* ========== ANIMAÇÕES CSS ========== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes particleMove {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-300px) translateX(200px); }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chartSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chartLine {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes chartSpin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes barEntry {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 1200px) {
+  .indicators-inner {
+    max-width: 980px;
+  }
+}
+
+@media (max-width: 980px) {
+  .cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .indicators-wrap {
+    padding: 28px 16px;
+  }
+  
+  .chart-area {
+    height: 350px;
+  }
+  
+  .chart-title {
+    font-size: 16px;
+  }
+  
+  .chart-card {
+    padding: 16px;
+  }
+  
+  /* Ajuste nas animações para mobile */
+  .metric-card {
+    animation: cardSlideInMobile 0.6s ease-out forwards;
+  }
+  
+  @keyframes cardSlideInMobile {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(0.98);
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .cards-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .card-value {
+    font-size: 20px;
+  }
+  
+  .chart-area {
+    height: 360px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .chart-title {
+    font-size: 16px;
+  }
+  
+  .chart-sub {
+    font-size: 12px;
+  }
+  
+  /* Desativa algumas animações complexas em mobile */
+  .metric-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .metric-card::after {
+    display: none;
+  }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 400px) {
+  .indicators-wrap {
+    padding: 20px 12px;
+  }
+  
+  .metric-card {
+    padding: 14px 16px;
+    min-height: 110px;
+  }
+  
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  
+  .chart-area {
+    height: 220px;
+  }
+}
+
+/* Transição suave para mudanças de dados */
+.value-transition {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Efeito de flutuação sutil para o container principal */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.indicators-inner {
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+/* Bloco "Exibindo Dados" com animações sofisticadas */
+.status-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid rgba(15, 81, 50, 0.3);
+  border-radius: 20px;
+  padding: 30px 25px;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, #f8fdfb 0%, #f0f9f6 100%);
+  box-shadow: 
+    0 8px 25px rgba(0, 59, 49, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  animation: statusBlockSlideIn 0.8s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+}
+
+
+
+.status-block:hover::before {
+  opacity: 0.4;
+}
+
+/* Efeito de partículas internas */
+.status-block::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(4, 120, 87, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.status-block:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 
+    0 15px 35px rgba(0, 123, 95, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Container do ícone otimizado para GIF */
+.status-icon {
+  position: relative;
+  margin-bottom: 18px;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.status-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: iconGlow 2s ease-in-out infinite;
+  z-index: 0;
+}
+
+.status-icon img {
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 6px 12px rgba(0, 123, 95, 0.3));
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  /* Otimização para GIF - mantém qualidade */
+ 
+  
+ 
+ 
+}
+
+.status-block:hover .status-icon img {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 10px 20px rgba(0, 123, 95, 0.4));
+}
+
+/* Texto do status com animações */
+.status-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f5132;
+  text-align: center;
+  position: relative;
+  animation: textFadeIn 1s ease-out 0.3s both;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-text::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  transition: width 0.6s ease;
+}
+
+.status-block:hover .status-text::after {
+  width: 80px;
+}
+
+/* Efeito de digitação no texto */
+.status-text.typing::after {
+  animation: typing 2s ease-in-out infinite;
+}
+
+/* Badge de status (opcional) */
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  animation: badgePulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 8px rgba(0, 123, 95, 0.3);
+}
+
+/* ========== ANIMAÇÕES CSS ========== */
+@keyframes statusBlockSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes iconGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 80px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 123, 95, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 123, 95, 0.4);
+  }
+}
+
+/* Efeito de partículas flutuantes */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Estados diferentes para o status */
+.status-block.success {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+}
+
+.status-block.loading {
+  border-color: rgba(59, 130, 246, 0.6);
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+}
+
+.status-block.error {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+  .status-block {
+    padding: 25px 20px;
+    margin-bottom: 24px;
+  }
+  
+  .status-icon img {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .status-text {
+    font-size: 20px;
+  }
+  
+  .status-badge {
+    top: 12px;
+    right: 12px;
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-block {
+    padding: 20px 15px;
+    border-radius: 16px;
+  }
+  
+  .status-icon img {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .status-text {
+    font-size: 18px;
+  }
+  
+  .status-block:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+}
+
+/* Transição suave para todos os elementos */
+.status-block * {
+  transition: all 0.3s ease;
+}

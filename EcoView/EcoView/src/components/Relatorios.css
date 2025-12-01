@@ -1,0 +1,665 @@
+/* Variáveis CSS para cores - Tema EcoView */
+:root {
+  --primary-dark: #003b31;
+  --primary: #047857;
+  --primary-light: #10b981;
+  --primary-glow: #2dd4bf;
+  --secondary: #064635;
+  --white: #ffffff;
+  --gray-light: #f8faf9;
+  --text-dark: #042f26;
+  --text-light: #666666;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 59, 49, 0.08);
+  --danger: #dc2626;
+  --warning: #d97706;
+  --success: #059669;
+  --eco-green: #059669;
+  --eco-blue: #0891b2;
+  --eco-teal: #0d9488;
+}
+
+/* Container principal - Tema Natureza */
+.relatorios-wrap {
+  padding: 40px 25px;
+  text-align: center;
+  background: 
+    linear-gradient(135deg, #003b31 0%, #047857 50%, #064635 100%),
+    radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(45, 212, 191, 0.1) 0%, transparent 50%);
+  background-size: 400% 400%, 800px 800px, 600px 600px;
+  animation: 
+    gradientShift 20s ease infinite,
+    gentlePulse 10s ease-in-out infinite;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de folhas/partículas naturais */
+.relatorios-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.1) 2%, transparent 8%),
+    radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.08) 2%, transparent 8%),
+    radial-gradient(circle at 30% 60%, rgba(13, 148, 136, 0.06) 1%, transparent 6%),
+    radial-gradient(circle at 70% 30%, rgba(8, 145, 178, 0.05) 1%, transparent 6%);
+  background-size: 300px 300px, 400px 400px, 350px 350px, 250px 250px;
+  animation: natureFloat 30s linear infinite;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.relatorios-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Títulos com tema EcoView */
+.relatorios-wrap h1 {
+  color: var(--white);
+  margin-bottom: 15px;
+  font-size: 3rem;
+  font-weight: 800;
+  animation: titleReveal 1s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  text-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(16, 185, 129, 0.2);
+  position: relative;
+}
+
+.relatorios-wrap h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+  border-radius: 2px;
+  animation: leafGrow 4s ease-in-out infinite;
+}
+
+.relatorios-wrap p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.3rem;
+  margin-bottom: 50px;
+  animation: fadeIn 1.2s ease-out 0.4s both;
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Alertas com design EcoView */
+.alert-box {
+  background: linear-gradient(135deg, var(--card-bg) 0%, #fef2f2 100%);
+  color: var(--text-dark);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-left: 5px solid var(--danger);
+  border-radius: 18px;
+  padding: 25px 30px;
+  margin: 35px auto;
+  max-width: 850px;
+  box-shadow: 
+    0 12px 35px rgba(220, 38, 38, 0.1),
+    0 4px 18px rgba(0, 0, 0, 0.05);
+  animation: 
+    alertSlideIn 0.7s cubic-bezier(0.2, 0.9, 0.2, 1.2),
+    alertPulse 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.alert-box::before {
+  content: '⚠️';
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  font-size: 1.5rem;
+  animation: alertIcon 2s ease-in-out infinite;
+}
+
+.alert-box p {
+  color: var(--text-dark);
+  margin: 5px 0 5px 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  animation: textShake 1s ease-in-out;
+  text-align: left;
+}
+
+/* Grid de cards RESPONSIVO e PROPORCIONAL */
+.relatorio-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 50px 0;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cards com design EcoView melhorado */
+.rel-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, #f8fdfb 100%);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 
+    0 10px 35px var(--card-shadow),
+    0 2px 10px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  position: relative;
+  overflow: hidden;
+  animation: cardSlideIn 0.7s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Animações escalonadas naturais */
+.rel-card:nth-child(1) { animation-delay: 0.1s; }
+.rel-card:nth-child(2) { animation-delay: 0.2s; }
+.rel-card:nth-child(3) { animation-delay: 0.3s; }
+.rel-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Efeito de crescimento no hover - Tema Natural */
+.rel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(16, 185, 129, 0.08), 
+    transparent);
+  transition: left 0.8s ease;
+}
+
+.rel-card:hover::before {
+  left: 100%;
+}
+
+.rel-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 50px rgba(0, 123, 95, 0.15),
+    0 8px 25px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Ícones com tema natureza */
+.rel-card > svg {
+  color: var(--primary);
+  margin-bottom: 20px;
+  filter: 
+    drop-shadow(0 4px 10px rgba(0, 123, 95, 0.2))
+    drop-shadow(0 0 5px rgba(16, 185, 129, 0.1));
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  font-size: 3rem;
+}
+
+.rel-card:hover > svg {
+  transform: scale(1.2) rotate(8deg);
+  color: var(--primary-light);
+  filter: 
+    drop-shadow(0 6px 15px rgba(0, 123, 95, 0.3))
+    drop-shadow(0 0 10px rgba(16, 185, 129, 0.2));
+}
+
+.rel-card h3 {
+  margin-top: 15px;
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: color 0.4s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.rel-card:hover h3 {
+  color: var(--eco-green);
+}
+
+.rel-card p {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  transition: all 0.4s ease;
+  font-weight: 400;
+}
+
+.rel-card small {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(5, 150, 105, 0.08));
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin: 10px 0;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  font-size: 0.9rem;
+}
+
+.rel-card:hover small {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.12));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 95, 0.15);
+}
+
+/* Layout de gráficos MELHORADO - Design Responsivo */
+.charts-section {
+  margin: 60px 0;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.charts-section h2 {
+  color: var(--white);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid de gráficos com layout inteligente */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 25px;
+  margin: 30px 0;
+}
+
+/* Gráfico principal - maior destaque */
+.chart-main {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 
+    0 12px 40px var(--card-shadow),
+    0 4px 20px rgba(0, 0, 0, 0.05);
+  animation: chartSlideIn 0.8s ease-out;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 123, 95, 0.15);
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+/* Gráficos secundários */
+.chart-secondary {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 
+    0 8px 30px var(--card-shadow),
+    0 3px 15px rgba(0, 0, 0, 0.04);
+  animation: chartSlideIn 0.8s ease-out 0.2s both;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 123, 95, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.chart-secondary:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.chart-secondary:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Efeitos de borda animados */
+.chart-main::before,
+.chart-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--primary), 
+    var(--primary-light), 
+    var(--eco-teal),
+    var(--primary));
+  background-size: 200% 100%;
+  animation: borderFlow 3s linear infinite;
+}
+
+.chart-main:hover,
+.chart-secondary:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 18px 50px rgba(0, 123, 95, 0.18),
+    0 6px 25px rgba(0, 0, 0, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Títulos dos gráficos */
+.chart-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.chart-main .chart-title {
+  font-size: 1.5rem;
+}
+
+/* Botão de exportar - Design EcoView */
+.export-section {
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+.export-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--eco-green) 100%);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 35px rgba(0, 123, 95, 0.3),
+    0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: 
+    buttonReveal 1s ease-out 1s both,
+    buttonGlow 4s ease-in-out infinite;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.export-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.8s ease;
+}
+
+.export-btn:hover::before {
+  left: 100%;
+}
+
+.export-btn:hover {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--eco-teal) 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 18px 50px rgba(0, 123, 95, 0.4),
+    0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.export-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.export-btn svg {
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  font-size: 1.3rem;
+}
+
+.export-btn:hover svg {
+  transform: scale(1.3) translateY(-2px);
+}
+
+/* ========== ANIMAÇÕES NATUREZA ========== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%, 0% 0%, 0% 0%; }
+  50% { background-position: 100% 50%, 100% 100%, 100% 100%; }
+  100% { background-position: 0% 50%, 0% 0%, 0% 0%; }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+@keyframes natureFloat {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  100% {
+    background-position: 150px -250px, -200px 150px, 250px -200px, -150px 250px;
+  }
+}
+
+@keyframes leafGrow {
+  0%, 100% { width: 120px; opacity: 0.8; }
+  50% { width: 180px; opacity: 1; }
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes alertSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes alertPulse {
+  0%, 100% {
+    box-shadow: 0 12px 35px rgba(220, 38, 38, 0.1);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(220, 38, 38, 0.15);
+  }
+}
+
+@keyframes alertIcon {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(10deg); }
+}
+
+@keyframes textShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+@keyframes cardSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chartSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes borderFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+@keyframes buttonReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow: 0 10px 35px rgba(0, 123, 95, 0.3);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(0, 123, 95, 0.4);
+  }
+}
+
+/* ========== RESPONSIVIDADE AVANÇADA ========== */
+@media (max-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  
+  .chart-main {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    min-height: 400px;
+  }
+  
+  .chart-secondary:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .chart-secondary:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .relatorios-wrap {
+    padding: 30px 15px;
+  }
+  
+  .relatorios-wrap h1 {
+    font-size: 2.3rem;
+  }
+  
+  .relatorio-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .chart-main,
+  .chart-secondary {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    min-height: 350px;
+  }
+  
+  .export-btn {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .relatorios-wrap {
+    padding: 20px 10px;
+  }
+  
+  .relatorios-wrap h1 {
+    font-size: 2rem;
+  }
+  
+  .relatorio-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .rel-card {
+    padding: 25px 20px;
+    min-height: 180px;
+  }
+  
+  .chart-main,
+  .chart-secondary {
+    padding: 20px;
+    min-height: 300px;
+  }
+  
+  .export-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Otimizações de performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

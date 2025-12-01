@@ -1,0 +1,380 @@
+/* Variáveis CSS para cores */
+:root {
+  --primary-dark: #003b31;
+  --primary: #047857;
+  --primary-light: #10b981;
+  --secondary: #064635;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --text-dark: #042f26;
+}
+
+.criar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #003b31, #047857, #065f46, #003b31);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de partículas no fundo */
+.criar-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 2%, transparent 10%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 2%, transparent 10%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.03) 2%, transparent 10%);
+  background-size: 600px 600px;
+  animation: particleMove 20s linear infinite;
+  z-index: 0;
+}
+
+.criar-box {
+  background: #ffffff; /* Branco sólido */
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0, 59, 49, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+.criar-header {
+  margin-bottom: 35px;
+  animation: slideInDown 0.8s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.criar-logo {
+  height: 70px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 5px 15px rgba(0, 123, 95, 0.3));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.criar-header h2 {
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.criar-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  animation: typing 3s ease-in-out infinite;
+}
+
+.criar-header p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 25px;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animações escalonadas para os inputs */
+.input-group:nth-child(1) { animation-delay: 0.4s; }
+.input-group:nth-child(2) { animation-delay: 0.5s; }
+.input-group:nth-child(3) { animation-delay: 0.6s; }
+.input-group:nth-child(4) { animation-delay: 0.7s; }
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  background: #ffffff; /* Branco sólido */
+  position: relative;
+}
+
+.input-group input:focus {
+  border-color: var(--primary);
+  background: #ffffff; /* Mantém branco no focus */
+  box-shadow: 
+    0 0 0 3px rgba(4, 120, 87, 0.1),
+    0 8px 20px rgba(0, 123, 95, 0.15);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Remove transição de cor do background */
+.input-group input {
+  transition: border-color 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2), 
+              box-shadow 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2),
+              transform 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+}
+
+.input-group input:focus + label {
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Efeito de ícone nos inputs */
+.input-group::after {
+  content: '✓';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.input-group input:valid::after {
+  opacity: 1;
+}
+
+.btn-create-account {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: fadeIn 0.8s ease-out 0.9s both;
+}
+
+.btn-create-account::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.btn-create-account:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 25px rgba(0, 123, 95, 0.3),
+    0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.btn-create-account:hover::before {
+  left: 100%;
+}
+
+.btn-create-account:active {
+  transform: translateY(-1px);
+}
+
+/* Estado de loading no botão */
+.btn-create-account.loading {
+  pointer-events: none;
+}
+
+.btn-create-account.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: buttonSpin 0.8s linear infinite;
+}
+
+/* ========== ANIMAÇÕES CSS ========== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes particleMove {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-300px) translateX(200px); }
+}
+
+@keyframes boxFloat {
+  0%, 100% { transform: translateY(0) rotate(0.5deg); }
+  50% { transform: translateY(-8px) rotate(-0.5deg); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.05); 
+  }
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  50% { width: 80px; }
+  100% { width: 0; }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+  .criar-wrapper {
+    padding: 15px;
+  }
+  
+  .criar-box {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+  
+  .criar-logo {
+    height: 60px;
+  }
+  
+  .criar-header h2 {
+    font-size: 24px;
+  }
+  
+  .input-group input {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .criar-box {
+    padding: 30px 20px;
+  }
+  
+  .criar-logo {
+    height: 50px;
+  }
+  
+  .criar-header h2 {
+    font-size: 22px;
+  }
+  
+  .criar-header p {
+    font-size: 14px;
+  }
+  
+  .btn-create-account {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Efeito de shimmer para loading dos inputs */
+.input-group.loading input {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Transição suave para todos os elementos */
+.criar-box * {
+  transition: all 0.3s ease;
+}
